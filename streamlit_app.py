@@ -2,6 +2,7 @@ import numpy as np
 import altair as alt
 import pandas as pd
 import streamlit as st
+from datetime import time, datetime
 
 st.header('st.button')
 
@@ -38,3 +39,38 @@ st.write(c)
 st.latex('cc')
 
 st.code('import pandas as pd')
+
+st.header("st.slider")
+
+age = st.slider(
+     label="How old are you ?",
+     min_value=0,
+     max_value=130,
+)
+st.write("I'm", age, "years old")
+
+range_value = st.slider(
+     label="Select a range of values",
+     min_value=0.00,
+     max_value=100.0,
+     value=(25.0,75.0)
+)
+st.write("Values :", range_value)
+
+range_time = st.slider(
+     label="Select a range of values",
+     min_value=time(0,0),
+     max_value=time(23,59),
+     value=(time(11,30),time(12,45))
+)
+st.write("Values :", range_time)
+
+range_datetime = st.slider(
+     label="When do you start ?",
+     min_value=datetime(2019,12,18,9,30),
+     max_value=datetime(2020,1,15,9,30),
+     value=datetime(2020,1,1,9,30),
+     format="MM/DD/YY - HH:mm"
+)
+st.write("Values :", range_datetime)
+
