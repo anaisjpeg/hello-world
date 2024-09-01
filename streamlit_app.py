@@ -74,3 +74,38 @@ range_datetime = st.slider(
 )
 st.write("Values :", range_datetime)
 
+st.header("st.line_chart")
+
+df3 = pd.DataFrame(np.random.randn(20, 3),
+                   columns=['a', 'b', 'c'])
+
+st.line_chart(df3)
+
+st.header("st.selectbox")
+
+selection = st.selectbox(label="What is your favorite color?",
+                         options=["Red", "Green", "Blue"])
+
+st.write("Your favorite color is ", selection)
+
+st.header("st.multiselect")
+multiselection = st.multiselect(label="What are your favorite colors?",
+                                options= ("Green", "Blue", "Red"),
+                                default= ("Green", "Red"))
+st.write("You selected:", multiselection)
+
+st.header("st.checkbox")
+st.write("What would you like to order?")
+
+glace = st.checkbox(label="Ice cream")
+coffee = st.checkbox(label="Coffee")
+cola = st.checkbox(label="Cola")
+
+if glace:
+    st.write("Here's some more!")
+
+if coffee:
+    st.write("Have a good day!")
+
+if cola:
+    st.write("Enjoy your drink!")
